@@ -1,0 +1,11 @@
+[
+    { "keys": ["super+k", "super+f"], "command": "sql_beautifier" },
+    { "keys": ["super+ctrl+j"], "command": "pretty_json" },
+    { "keys": ["super+ctrl+m"], "command": "un_pretty_json" },
+    { "keys": ["super+x"], "command": "clipboard_manager_cut" },
+    { "keys": ["super+c"], "command": "clipboard_manager_copy" },
+    { "keys": ["super+v"], "command": "clipboard_manager_paste", "args": { "indent": true } },
+    { "keys": ["super+alt+v"], "command": "clipboard_manager_next_and_paste" },
+    { "keys": ["super+shift+v"], "command": "clipboard_manager_previous_and_paste" },
+    { "keys": ["super+alt+ctrl+v"], "command": "clipboard_manager_choose_and_paste" },
+]

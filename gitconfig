@@ -1,0 +1,11 @@
+# 配置 git 用户和邮箱
+git config --global user.name "s0rel"
+git config --global user.email "sorelllllllll@gmail.com"
+
+# git 配置 socks 代理
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+
+# git 配置 ssh
+## ssh-keygen
+## cat ~/.ssh/id_rsa.pub
