@@ -1,7 +1,7 @@
 ### 开发工具
 基础开发工具
 ```shell
-brew install automake autogen autoconf make cmake gcc gdb llvm astyle clang-format sqlite3 ripgrep shellcheck vim neovim mycli tldr tmux
+brew install automake autogen autoconf make cmake coreutils cscope gcc gdb llvm astyle clang-format sqlite3 ripgrep shellcheck vim neovim mycli tldr tmux bash-completion
 ```
 
 Xcode Command Line Tools
@@ -37,11 +37,17 @@ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy scipy scikit-lear
 
 ```
 
+[Universal Ctags](https://github.com/universal-ctags/ctags)
+```shell
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+```
+
 ### 实用软件
 命令行工具
 ```shell
-brew install rar ffmpeg wget axel curl aria2 fd tree neofetch colordiff exa openssh xclip telnet telnetd tcptrace tcpdump dhcpdump ssldump nmap cloc fortune cowsay
+brew install rar ffmpeg wget axel curl aria2 fd tree neofetch colordiff exa openssh xclip telnet telnetd tcptrace tcpdump dhcpdump ssldump nmap cloc graphviz fortune cowsay
 ```
 
 ### 其他软件
-iTerm2、Azul JDK、The Unarchiver、IINA、Wireshark、Postman、Cheatsheet、Another Redis Desktop Manager、Charles
+iTerm2、Azul JDK、The Unarchiver、IINA、Wireshark、Postman、Cheatsheet、Another Redis Desktop Manager、Charles、Rectangle、Flycut
