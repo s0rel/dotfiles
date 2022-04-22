@@ -2,6 +2,8 @@
 	"bootstrapped": true,
 	"installed_packages":
 	[
+		"A File Icon",
+		"AdvancedNewFile",
 		"All Autocomplete",
 		"AutoFileName",
 		"BracketHighlighter",
@@ -14,6 +16,7 @@
 		"Git",
 		"GitGutter",
 		"HexViewer",
+		"Keymaps",
 		"MarkdownEditing",
 		"Origami",
 		"Package Control",
