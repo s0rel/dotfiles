@@ -41,6 +41,7 @@ alias egrep='egrep --color=auto --ignore-case --with-filename --line-number'
 alias vi='vim -u NONE -N' #  -u NONE 表示不加载外部 vimrc， -N 关闭兼容模式 'vim --noplugin'
 alias file='file --mime'
 alias javac='javac -encoding UTF-8 -J-Duser.language=en'
+alias py3='python3'
 
 # git alias
 alias gst='git status'
