@@ -1,7 +1,7 @@
 ### 开发工具
 基础开发工具
 ```shell
-brew install automake autogen autoconf make cmake coreutils cscope gcc gdb llvm astyle clang-format sqlite3 ripgrep shellcheck vim neovim mycli tldr tmux bash-completion
+brew install automake autogen autoconf make cmake coreutils cscope gcc gdb llvm astyle clang-format sqlite3 ripgrep shellcheck vim neovim mycli tldr tmux bash-completion redis
 ```
 
 Xcode Command Line Tools
