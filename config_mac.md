@@ -50,4 +50,4 @@ brew install rar ffmpeg wget axel curl aria2 fd tree neofetch colordiff exa open
 ```
 
 ### 其他软件
-iTerm2、Azul JDK、The Unarchiver、IINA、Wireshark、Postman、Cheatsheet、Another Redis Desktop Manager、Charles、Rectangle、Flycut
+iTerm2、The Unarchiver、IINA、Wireshark、Postman、Cheatsheet、Notion、Another Redis Desktop Manager、Charles、Rectangle、ItsyCal、Free Download Manager、Flycut、MenuMeters
