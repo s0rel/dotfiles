@@ -63,8 +63,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'tpope/vim-fugitive' " :G 查看 git status
-Plug 'junegunn/gv.vim', {'on': 'GV'}
-Plug 'mattn/gist-vim'
+Plug 'rhysd/git-messenger.vim'
 Plug 'mhinz/vim-signify'
 
 Plug 'tpope/vim-repeat'
@@ -75,7 +74,6 @@ Plug 'tyru/open-browser.vim'
 Plug 'Chiel92/vim-autoformat'
 
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
-Plug 'solarnz/thrift.vim'
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'typescript'] }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
@@ -83,11 +81,10 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'xml', 'css', 'sass', 'scss', 'less', 
 
 Plug 'jiangmiao/auto-pairs' " <Alt-p> 触发开关，录制宏的时候最好关闭它
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-"Plug 'ludovicchabant/vim-gutentags'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'junegunn/rainbow_parentheses.vim', { 'for': ['lisp', 'clojure', 'scheme'] }
+Plug 'luochen1990/rainbow'
 Plug 'unblevable/quick-scope'
 Plug 'rrethy/vim-illuminate'
 Plug 'valloric/matchtagalways'
@@ -96,26 +93,20 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mattesgroeger/vim-bookmarks'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'junegunn/vim-journal'
+Plug 'vimwiki/vimwiki'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'bling/vim-bufferline'
 Plug 'godlygeek/tabular'
 
-Plug 'yianwillis/vimcdoc'
-
 Plug 'junegunn/seoul256.vim'
 Plug 'keitanakamura/neodark.vim'
 Plug 'gruvbox-community/gruvbox'
-Plug 'lifepillar/vim-solarized8'
+Plug 'joshdick/onedark.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'doums/darcula'
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'nequo/vim-allomancer'
 Plug 'sjl/badwolf'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'gilgigilgil/anderson.vim'
-Plug 'YorickPeterse/happy_hacking.vim'
-Plug 'mhinz/vim-janah'
-Plug 'AlessandroYorba/Despacio'
 
 
 call plug#end()
@@ -199,7 +190,7 @@ let g:loaded_spellfile_plugin = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_vimballPlugin = 1
 let g:loaded_zipPlugin = 1
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = '/usr/local/bin/python3'
 
 
 
@@ -541,7 +532,7 @@ autocmd FileType c,cpp setlocal keywordprg=:Man
 " 设置字典
 set dictionary+=/usr/share/dict/words
 " 针对下列扩展名的文件添加字典单词补全
-autocmd BufNewFile,BufRead *.markdown,*.md,*.org,*.rst,*.tex,*.txt,*wiki setlocal complete+=k
+autocmd BufNewFile,BufRead *.markdown,*.md,*.org,*.rst,*.tex,*.txt,*.wiki setlocal complete+=k
 " 对于二进制文件自动调用 xxd
 autocmd BufReadPost * if &bin | silent! exe '%!xxd' | setlocal filetype=xxd | endif
 autocmd BufWritePre * if &bin | silent! exe '%!xxd -r' | endif
@@ -549,7 +540,7 @@ autocmd BufWritePost * if &bin | silent! exe '%!xxd' | setlocal nomodified | end
 " <Leader>sc 拼写检查开关
 nnoremap <Leader>sc :setlocal spell!<CR>
 " 设置 c，c++，java，python 的保持格式为 UNIX
-autocmd BufWritePre *c,*h,*cc,*.cpp,*.hpp,*py,*java setlocal fileformat=unix
+autocmd BufWritePre *.c,*.h,*.cc,*.cpp,*.hpp,*.py,*.java setlocal fileformat=unix
 " 在打开的 buffer 中搜索
 nnoremap <leader>bs :cex []<BAR>bufdo vimgrepadd @@g %<BAR>cw<s-left><s-left><right>
 " :Root 进入 git 仓库的根目录
@@ -702,7 +693,7 @@ function! AddHeader()
     endif
     autocmd BufNewFile * normal G
 endfunction
-autocmd BufNewFile *h,*.hpp,*.sh,*.py,*.java call AddHeader()
+autocmd BufNewFile *.h,*.hpp,*.sh,*.py,*.java call AddHeader()
 " 在 tmux 里面发送文本内容
 function! s:tmux_send(content, dest) range
     let dest = empty(a:dest) ? input('To which pane? ') : a:dest
@@ -767,10 +758,10 @@ let g:autoformat_remove_trailing_spaces = 1
 " 保存前自动格式化 *c,*h,*cc,*.cpp,*.hpp,*py,*java,*json 文件
 augroup format
     autocmd!
-    autocmd BufWritePre *c,*h,*cc,*.cpp,*.hpp,*py,*java,*json :Autoformat
+    autocmd BufWritePre *.c,*.h,*.cc,*.cpp,*.hpp,*.py,*.java,*.json :Autoformat
 augroup END
 " 对于 markdown 不去除多余的空白
-autocmd FileType *markdown,*md let b:autoformat_remove_trailing_spaces = 0
+autocmd FileType *.markdown,*.md let b:autoformat_remove_trailing_spaces = 0
 " 对于 zsh 和 bash 不自动缩进
 autocmd FileType zsh,bash let b:autoformat_autoindent=0
 
@@ -835,7 +826,7 @@ nnoremap N N:ShowSearchIndex<CR>
 "                               tagbar
 "*****************************************************************************"
 " 显式指定 ctags
-let g:tagbar_ctags_bin = '/usr/bin/ctags'
+let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
 " <Leader>k 触发开关，设置宽度为 30
 let g:tagbar_width = 30
 nmap <Leader>k :TagbarToggle<CR>
@@ -876,7 +867,7 @@ let g:mundo_mappings = {
     \ 'r': 'diff',
     \ '?': 'toggle_help',
     \ 'q': 'quit',
-\ '<2-LeftMouse>': 'mouse_click' }
+    \ '<2-LeftMouse>': 'mouse_click' }
 
 "*****************************************************************************"
 "                               NERDTree
@@ -926,16 +917,31 @@ let g:NERDTreeIndicatorMapCustom = {
 "*****************************************************************************"
 "                               rainbow_parentheses
 "*****************************************************************************"
-" 最大高亮 10 级
-let g:rainbow#max_level = 10
-let g:rainbow#pairs = [['(', ')'], ['[', ']']]
-" 不使用这个颜色
-let g:rainbow#blacklist = [233, 234]
-" 对于 lisp,clojure,scheme 自动启用
-augroup rainbow_lisp
-    autocmd!
-    autocmd FileType lisp,clojure,scheme RainbowParentheses
-augroup END
+" 自动启用彩虹括号
+let g:rainbow_active = 1 
+" 配置不同语言的策略
+let g:rainbow_conf = {
+    \    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \    'operators': '_,_',
+    \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+    \    'separately': {
+    \        '*': {},
+    \        'tex': {
+    \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+    \        },
+    \        'lisp': {
+    \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+    \        },
+    \        'vim': {
+    \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+    \        },
+    \        'html': {
+    \            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+    \        },
+    \        'css': 0,
+    \    }
+\}
+
 
 "*****************************************************************************"
 "                               quick-scope
@@ -950,7 +956,7 @@ let g:qs_max_chars= 120
 "                               illuminate
 "*****************************************************************************"
 " 设置默认的延迟时间
-let g:Illuminate_delay = 250
+let g:Illuminate_delay = 200
 " 设置不高亮的组
 let g:Illuminate_ftHighlightGroups = {
     \ 'vim:blacklist': ['vimVar', 'vimString', 'vimLineComment',
@@ -980,7 +986,7 @@ let g:indent_guides_guide_size = 1
 " 从第 2 级开始缩进
 let g:indent_guides_start_level = 2
 " 以下文件类型不提供缩进提示
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'defx', 'nnn']
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'nnn']
 
 "*****************************************************************************"
 "                               limelight
@@ -1284,9 +1290,10 @@ let g:signify_vcs_cmds = {
 \}
 
 "*****************************************************************************"
-"                               gv
+"                               git-messenger
 "*****************************************************************************"
-" :GV 打开 commit 浏览器，:GV! 列举出影响当前行的 commit，<CR> 进入查看某条 commit 的详细信息
+" <Leader>gm 打开 git-messenger，在浮动窗口内使用 ? 可以看到其他映射
+nmap <Leader>gm <Plug>(git-messenger)
 
 "*****************************************************************************"
 "                               open-browser
@@ -1297,9 +1304,10 @@ let g:netrw_nogx = 1
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
+"*****************************************************************************"
+"                               vimwiki
+"*****************************************************************************"
+" 使用的 Markdown 语法
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
-"*****************************************************************************"
-"                               journal
-"*****************************************************************************"
-" <Leader>ww 打开 scratch
-nnoremap <Leader>ww :edit ~/.vim/scratch.txt<CR>
