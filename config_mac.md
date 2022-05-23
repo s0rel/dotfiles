@@ -43,6 +43,11 @@ brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
 ```
 
+[Nerd Fonts](https://www.nerdfonts.com/f)
+```shell
+brew install font-sauce-code-pro-nerd-font font-hack-nerd-font font-fira-code-nerd-font
+```
+
 ### 实用软件
 命令行工具
 ```shell
