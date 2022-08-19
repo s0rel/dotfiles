@@ -31,6 +31,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+[sdkman](https://sdkman.io/)
+```shell
+curl -s "https://get.sdkman.io" | bash
+```
+
 python 包
 ```shell
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy scipy scikit-learn pandas statsmodels matplotlib seaborn cython jedi pylint autopep8 neovim pygments

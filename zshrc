@@ -79,11 +79,14 @@ export LANGUAGE=en_US.UTF-8
 
 
 
-export MAVEN_HOME=/Users/sorel/Applications/apache-maven-3.8.5
+export MAVEN_HOME=/opt/maven/apache-maven-3.8.6
 export PATH=$MAVEN_HOME/bin:$PATH
 
+export GRADLE_HOME=/opt/gradle/gradle-7.5.1
+export PATH=$GRADLE_HOME/bin:$PATH
+
 # 使用 startup.sh 开启 tomcat，使用 shutdown.sh 关闭 tomcat，不输出日志的话，可以使用 catalina.sh 来启动和关闭 tomcat
-export CATALINA_HOME=/Users/sorel/Applications/apache-tomcat-9.0.41
+export CATALINA_HOME=/opt/tomcat/apache-tomcat-9.0.65
 export PATH=$CATALINA_HOME/bin:$PATH
 
 export PATH=${PATH}:/usr/local/mysql/bin
