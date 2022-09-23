@@ -1,7 +1,7 @@
 ### 开发工具
 基础开发工具
 ```shell
-brew install automake autogen autoconf make cmake coreutils cscope gcc gdb llvm astyle clang-format sqlite3 ripgrep shellcheck vim neovim mycli tldr tmux bash-completion redis
+brew install automake autogen autoconf make cmake coreutils cscope gcc gdb llvm astyle clang-format sqlite3 ripgrep shellcheck vim neovim mycli tealdeer tmux bash-completion redis
 ```
 
 Xcode Command Line Tools
@@ -56,7 +56,7 @@ brew install font-sauce-code-pro-nerd-font font-hack-nerd-font font-fira-code-ne
 ### 实用软件
 命令行工具
 ```shell
-brew install rar ffmpeg wget axel curl aria2 fd tree neofetch colordiff exa openssh xclip telnet telnetd tcptrace tcpdump dhcpdump ssldump nmap cloc graphviz fortune cowsay
+brew install rar ffmpeg wget axel curl aria2 fd tree neofetch colordiff exa openssh xclip telnet telnetd tcptrace tcpdump dhcpdump ssldump nmap dust tokei grex git-delta watchexec graphviz fortune cowsay
 ```
 
 ### 其他软件
