@@ -1,7 +1,7 @@
 ### 开发工具
 基础开发工具
 ```shell
-brew install automake autogen autoconf make cmake coreutils cscope gcc gdb llvm astyle clang-format sqlite3 ripgrep shellcheck vim neovim mycli tealdeer tmux bash-completion redis lua nodejs
+brew install automake autogen autoconf make cmake coreutils gcc gdb llvm clang-format sqlite3 ripgrep shellcheck vim neovim mycli tealdeer tmux bash-completion redis lua
 ```
 
 Xcode Command Line Tools
@@ -31,33 +31,21 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-[sdkman](https://sdkman.io/)
-```shell
-curl -s "https://get.sdkman.io" | bash
-```
-
 python 包
 ```shell
-pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy scipy scikit-learn pandas statsmodels matplotlib seaborn cython jedi pylint autopep8 neovim pygments latexify_py
-
-```
-
-[Universal Ctags](https://github.com/universal-ctags/ctags)
-```shell
-brew tap universal-ctags/universal-ctags
-brew install --HEAD universal-ctags
+pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy scipy scikit-learn pandas statsmodels matplotlib seaborn requests beautifulsoup4 lxml cython jedi pylint autopep8 neovim pygments latexify_py
 ```
 
 [Nerd Fonts](https://www.nerdfonts.com/f)
 ```shell
-brew install font-sauce-code-pro-nerd-font font-hack-nerd-font font-fira-code-nerd-font
+brew install font-sauce-code-pro-nerd-font font-fira-code-nerd-font
 ```
 
 ### 实用软件
 命令行工具
 ```shell
-brew install rar ffmpeg wget axel curl aria2 fd tree neofetch colordiff exa openssh xclip telnet telnetd tcptrace tcpdump dhcpdump ssldump nmap dust tokei grex git-delta watchexec pandoc graphviz fortune cowsay
+brew install rar ffmpeg wget axel curl aria2 fd tree neofetch colordiff exa openssh xclip telnet telnetd tcptrace tcpdump dhcpdump ssldump nmap tokei eva grex git-delta watchexec fortune cowsay
 ```
 
 ### 其他软件
-iTerm2、The Unarchiver、IINA、Wireshark、Postman、Cheatsheet、Joplin、Another Redis Desktop Manager、Charles、Rectangle、ItsyCal、Free Download Manager、Maccy、MenuMeters、NetNewsWire、Calibre
+iTerm2、keka、IINA、Wireshark、Postman、Joplin、ItsyCal、Free Download Manager、Maccy

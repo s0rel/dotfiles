@@ -1,5 +1,4 @@
 [
-    { "keys": ["super+k", "super+f"], "command": "sql_beautifier" },
     { "keys": ["super+ctrl+j"], "command": "pretty_json" },
     { "keys": ["super+ctrl+m"], "command": "un_pretty_json" },
 ]
